@@ -1,23 +1,12 @@
+import 'react-native-gesture-handler'
 import React, {useEffect, useState} from 'react';
 
-import {
-    useFonts,
-    Inter_400Regular,
-    Inter_500Medium
-} from "@expo-google-fonts/inter"
-import {
-    Archivo_400Regular,
-    Archivo_500Medium,
-    Archivo_600SemiBold
-} from "@expo-google-fonts/archivo"
+import {Inter_400Regular, Inter_500Medium, useFonts} from "@expo-google-fonts/inter"
+import {Archivo_400Regular, Archivo_500Medium, Archivo_600SemiBold} from "@expo-google-fonts/archivo"
 
-import {Home} from "./src/screens/Home";
-
-import * as SplashScreen from 'expo-splash-screen';
 import {ThemeProvider} from "styled-components";
 import theme from "./src/styles/theme";
-
-SplashScreen.preventAutoHideAsync().then();
+import {Routes} from "./src/routes";
 
 export default function App() {
     const [appIsReady, setAppIsReady] = useState(false);
@@ -37,14 +26,16 @@ export default function App() {
     }, [fontsLoaded]);
 
     if (appIsReady) {
-        SplashScreen.hideAsync().then();
+        // setTimeout(async () => {
+        //     await SplashScreen.hideAsync();
+        // }, 2000);
     } else {
         return null;
     }
 
     return (
         <ThemeProvider theme={theme}>
-            <Home/>
+            <Routes/>
         </ThemeProvider>
     );
 }
