@@ -9,9 +9,11 @@ import {gestureHandlerRootHOC} from "react-native-gesture-handler";
 import {CarDto} from "../dtos/CarDto";
 import {MyCars} from "../screens/MyCars";
 import {Splash} from "../screens/Splash";
+import {SignIn} from "../screens/SignIn";
 
 export type RootStackParamList = {
     Splash: undefined;
+    SignIn: undefined;
     Home: undefined;
     CarDetails: { car: CarDto };
     Scheduling: { car: CarDto };
@@ -26,11 +28,11 @@ export function StackRoutes() {
     return (
         <Navigator
             screenOptions={{headerShown: false}}
-            initialRouteName={'Splash'}
+            initialRouteName={'SignIn'}
         >
             <Screen
-                name={"Splash"}
-                component={gestureHandlerRootHOC(Splash)}
+                name={"SignIn"}
+                component={gestureHandlerRootHOC(SignIn)}
             />
             <Screen
                 name={"Home"}

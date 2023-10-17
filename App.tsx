@@ -7,6 +7,7 @@ import {Archivo_400Regular, Archivo_500Medium, Archivo_600SemiBold} from "@expo-
 import {ThemeProvider} from "styled-components";
 import theme from "./src/styles/theme";
 import {Routes} from "./src/routes";
+import {StatusBar} from "react-native";
 
 export default function App() {
     const [appIsReady, setAppIsReady] = useState(false);
@@ -35,6 +36,11 @@ export default function App() {
 
     return (
         <ThemeProvider theme={theme}>
+            <StatusBar
+            barStyle={"dark-content"}
+            backgroundColor={"transparent"}
+            translucent={true}
+            />
             <Routes/>
         </ThemeProvider>
     );
